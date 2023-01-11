@@ -2,7 +2,6 @@
   import Calculator from '$lib/components/Calculator.svelte'
   import CalculatorForm from '$lib/components/CalculatorForm.svelte'
   import Counter from '$lib/components/Counter.svelte'
-
   console.log('/routes/+page.svelte runtime')
 </script>
 

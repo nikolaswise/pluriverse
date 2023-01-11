@@ -9,6 +9,7 @@
   <input type="number" name="a" bind:value={a}>
   +
   <input type="number" name="b" bind:value={b}>
+  <input type="hidden" name="redirect" value="true">
   <button>=</button>
 
 </form>
