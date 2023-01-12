@@ -2,7 +2,8 @@
 
 Features of this application include:
 
-- Linked-data first structure.
+- [Linked-data](https://nikolas.ws/introduction-to-rdf) first structure.
+- [JSON-LD](https://nikolas.ws/what-is-jsonld-for) graph capabillities.
 - Automatically generated REST api & queries.
 - Schema-less datastore; arbitrary key:val pairs on objects.
 - N-to-N directed resource relationships.
