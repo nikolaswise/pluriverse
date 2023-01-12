@@ -11,11 +11,11 @@
 
 <h2>Two Way Binding</h2>
 
-<Calculator a=1 b=2 />
+<Calculator a=100 b=2 />
 
 <h2>Client / Server Actions</h2>
 
-<CalculatorForm a=1 b=2 />
+<CalculatorForm a=100 b=2 />
 
 <h2>Observable Stores</h2>
 

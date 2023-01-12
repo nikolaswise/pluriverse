@@ -1,12 +1,12 @@
 export async function load({params}) {
   return {
     slug: params.slug,
-    ssr: true
+    arbitrary: 'key'
   }
 }
-
-export const actions = {
-  default: async () => {
-    console.log('Accept POST')
-  }
-};
+//
+// export const actions = {
+//   default: async () => {
+//     console.log('Accept POST')
+//   }
+// };

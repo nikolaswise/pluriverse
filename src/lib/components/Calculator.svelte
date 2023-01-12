@@ -1,14 +1,13 @@
 <script type="text/javascript">
   import { add } from '$lib/math'
-  import { count } from '$lib/stores.js'
 
   export let a = 0
   export let b = 0
+
   let c = add(a, b)
 
   $: {
-     c = add(a, b)
-     count.set(c);
+    c = add(a, b)
   }
 </script>
 
@@ -21,3 +20,9 @@
     {c}
   </output>
 </form>
+
+<style type="text/css">
+  input {
+    border: 6px solid pink;
+  }
+</style>

@@ -5,8 +5,6 @@ import { json } from '@sveltejs/kit';
 export async function POST({ request }) {
   const formData = await request.formData()
   let result = add(formData.get('a'), formData.get('b'))
-  console.log(formData)
-  console.log(formData.get('redirect'))
   if (formData.get('redirect')) {
     throw redirect(307, `/${result}`);
   }
