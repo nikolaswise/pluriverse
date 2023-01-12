@@ -1,0 +1,6 @@
+{
+  "@base": "https://vocab.voxmedia.com/",
+  "@vocab": "#",
+  "id": "@id",
+  "type": "@type"
+}

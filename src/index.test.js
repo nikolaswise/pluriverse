@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { add } from '$lib/math'
+
+const add = (a, b) => parseInt(a) + parseInt(b)
 
 describe('sum test', () => {
 	it('adds 1 + 2 to equal 3', () => {

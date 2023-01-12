@@ -3,4 +3,7 @@
   console.log(data)
 </script>
 
-<h1>{data.slug}</h1>
+<p>
+  <mark>{data.id}</mark>
+</p>
+<h1>{data.title}</h1>
