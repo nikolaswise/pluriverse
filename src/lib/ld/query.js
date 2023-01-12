@@ -19,6 +19,9 @@ export const queryJSON = async query => {
     .then(result => result.text())
   const doc = await jsonld.fromRDF(triples, {format: 'application/n-quads'});
   const compact = await jsonld.compact(doc, context)
+  console.log(`${prefixes}
+    ${query}`)
+  console.log(compact)
   delete compact['@context']
   if (compact['@graph']) {
     return compact['@graph']
