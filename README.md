@@ -34,6 +34,10 @@ INSERT DATA {
 
 > What's up with those prefix thingies? `vox:` and `rdf:`? Those are namespaces. They allow us to disambiguate keys from each other. For this project, you can use `vox:` for _any key you want_. You can also edit the `src/lib/ld/prefixes.js` file to add other namespaces, if you want to create a new namespace or add extant linked-data terms.
 
+## How it Works
+
+Create resources via form posts. Request the data for those resources via REST API. Write UI's to present that data via Svelte components.
+
 ## Creating Resources with Forms
 
 The `CreateResource.svelte` component shows the basics of how to use form posts to create new resources.
