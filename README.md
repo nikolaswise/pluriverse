@@ -25,15 +25,15 @@ $ docker-compose up
 3. Run the following:
 
 ```
-PREFIX vox: <https://vocab.voxmedia.com/#>
+PREFIX example: <https://vocab.example.com/#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 INSERT DATA {
-  <http://localhost:5173> rdf:type <vox:Resource> .
-  <http://localhost:5173> vox:title "SvelteKit Triplestore" .
+  <http://localhost:5173> rdf:type <example:Project> .
+  <http://localhost:5173> example:title "Plural App" .
 }
 ```
 
-> What's up with those prefix thingies? `vox:` and `rdf:`? Those are namespaces. They allow us to disambiguate keys from each other. For this project, you can use `vox:` for _any key you want_. You can also edit the `src/lib/ld/prefixes.js` file to add other namespaces, if you want to create a new namespace or add extant linked-data terms.
+> What's up with those prefix thingies? `example:` and `rdf:`? Those are namespaces. They allow us to disambiguate keys from each other. For this project, you can use `example:` for _any key you want_. You can also edit the `src/lib/ld/prefixes.js` file to add other namespaces, if you want to create a new namespace or add extant linked-data terms.
 
 ## How it Works
 
@@ -54,7 +54,7 @@ name="rdf:type :"  // value is a resource url. Creates a relationship between re
 
 name="! rdf:type :"  // value is a resource url. Creates an inverted relationship between resources.
 
-name="vox:date ^xsd:date" // sets the scalar value type to Date
+name="example:date ^xsd:date" // sets the scalar value type to Date
 ```
 
 ## Using REST
@@ -69,8 +69,8 @@ GET http://localhost:5173/resource
 A query can be constructed by `api/{key}/{value}`, and will return all the objects that contain that key/val pair.
 
 ```
-GET http://localhost:5173/api/rdf:type/<vox:Resource>
-GET http://localhost:5173/api/vox:title/"SvelteKit Triplestore"
+GET http://localhost:5173/api/rdf:type/<example:Project>
+GET http://localhost:5173/api/example:title/"Plural App"
 ```
 
 Note the `"{value}"` vs `<{value}>`. Quotes are for querying scalar values, brackets are for relationships to other objects.

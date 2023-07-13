@@ -1,6 +1,5 @@
 <script type="text/javascript">
   export let data
-  console.log(data)
 </script>
 
 <p>

@@ -1,19 +1,20 @@
 import getResource from './getResource.js'
-import { update } from '$lib/ld/query.js'
-import rdfkv from '$lib/ld/rdf-kv.js'
+import db from '$lib/query.js'
+import rdfkv from 'rdf-kv.js'
 
 export async function load({url}) {
-  let resource = getResource(url.href)
+  let id = decodeURIComponent(url.href)
+  let resource = getResource(id)
   return resource
 }
 
 export const actions = {
   default: async ({url, request}) => {
     let formData = await request.formData()
-    let id = url.href
+    let encoded = url.href
+    let id = decodeURIComponent(encoded)
     let updateData = rdfkv(id, formData)
-    console.log(updateData)
-    let success = await update(updateData)
-    return success
+    let success = await db.update(updateData)
+    return true
   }
 };

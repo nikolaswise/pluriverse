@@ -30,6 +30,8 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"jsonld": "^8.1.0"
+		"jsonld": "^8.1.0",
+		"rdf-kv.js": "^0.0.2",
+		"sparqler-client.js": "^0.0.1"
 	}
 }

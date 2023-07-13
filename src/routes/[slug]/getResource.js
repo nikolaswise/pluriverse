@@ -1,12 +1,13 @@
 import { error } from '@sveltejs/kit';
-import { queryJSON } from '$lib/ld/query'
+import db from '$lib/query.js'
 
 const getResource = async id => {
-  let result = await queryJSON(`describe <${id}>`)
+  let result = await db.query(`describe <${id}>`)
   if (result.length === 0) {
     throw error(404, 'Resource not found.')
   }
-  return result
+  console.log(result[0])
+  return result[0]
 }
 
 export default getResource

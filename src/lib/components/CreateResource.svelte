@@ -1,15 +1,19 @@
 <script type="text/javascript">
   let id = crypto.randomUUID()
+  let encoded
+  $: {
+    encoded = encodeURIComponent(id)
+  }
 </script>
 
 <form
-  action='/{id}'
+  action='/{encoded}'
   method='post'>
   <label>
     Resource Title
     <input
       type="text"
-      name="vox:title"
+      name="ex:title"
     />
   </label>
   <label>
@@ -23,7 +27,7 @@
   <input
     type="hidden"
     name="rdf:type :"
-    value="vox:Resource">
+    value="ex:Resource">
   <button>
     Submit
   </button>
