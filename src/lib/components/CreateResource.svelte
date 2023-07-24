@@ -1,4 +1,15 @@
 <script type="text/javascript">
+  import InputMultiple from '$lib/components/InputMultiple.svelte'
+  import SelectMultiple from '$lib/components/SelectMultiple.svelte'
+
+  export let relatedTo = []
+  let relatedOptions = relatedTo.map(node => {
+    return {
+      name: node.title,
+      value: node.id
+    }
+  })
+
   let id = crypto.randomUUID()
   let encoded
   $: {
@@ -16,6 +27,19 @@
       name="ex:title"
     />
   </label>
+
+  <InputMultiple
+    name="ex:altLabel"
+    label="Also Known As"
+    submit="Add Label"
+  />
+
+
+  <SelectMultiple
+    name="ex:relatedTo"
+    options={relatedOptions}
+  />
+
   <label>
     Resource Slug
     <input 

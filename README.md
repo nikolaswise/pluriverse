@@ -18,26 +18,29 @@ $ docker-compose build
 $ docker-compose up
 ```
 
-## Load with Data
-
-1. Visit `http://localhost:7878/`
-2. In the little endpoint input, set to `http://localhost:7878/update`
-3. Run the following:
-
-```
-PREFIX example: <https://vocab.example.com/#>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-INSERT DATA {
-  <http://localhost:5173> rdf:type <example:Project> .
-  <http://localhost:5173> example:title "Plural App" .
-}
-```
-
-> What's up with those prefix thingies? `example:` and `rdf:`? Those are namespaces. They allow us to disambiguate keys from each other. For this project, you can use `example:` for _any key you want_. You can also edit the `src/lib/ld/prefixes.js` file to add other namespaces, if you want to create a new namespace or add extant linked-data terms.
-
 ## How it Works
 
 Create resources via form posts. Request the data for those resources via REST API. Write UI's to present that data via Svelte components.
+
+## Using SPARQL
+
+The [SPARQL request client](https://www.npmjs.com/package/sparqler-client.js) is helpful for making queries to the Triplestore.
+
+You can construct JSON objects with queries:
+```
+let json = client.query(`construct { ?s ?p ?o} where { ?s ?p ?o}`)
+```
+
+Insert JSON Objects to the store:
+```
+let result = client.insert({…})
+```
+
+Or use [rdf-kv.js](https://www.npmjs.com/package/rdf-kv.js) to translate FormBody objects directly into updates:
+
+```
+let result = client.update({insert, delete})
+```
 
 ## Creating Resources with Forms
 
@@ -56,6 +59,9 @@ name="! rdf:type :"  // value is a resource url. Creates an inverted relationshi
 
 name="example:date ^xsd:date" // sets the scalar value type to Date
 ```
+
+> What's up with those prefix thingies? `example:` and `rdf:`? Those are namespaces. They allow us to disambiguate keys from each other. For this project, you can use `example:` for _any key you want_. You can also edit the `src/lib/ld/prefixes.js` file to add other namespaces, if you want to create a new namespace or add extant linked-data terms.
+
 
 ## Using REST
 
