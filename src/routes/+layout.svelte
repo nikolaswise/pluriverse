@@ -7,7 +7,7 @@
 
 <style type="text/css">
   main {
-    max-width: 24rem;
-    margin: 2rem auto;
+    max-width: 100%;
+    margin: 2rem;
   }
 </style>

@@ -4,7 +4,7 @@ import {
   sparql_password } from '$env/static/private'
 import context from '$lib/context'
 import prefixes from '$lib/prefixes'
-import sparqler from 'sparqler-client.js'
+import sparqler from '$lib/sparqler'
 
 const client = sparqler({
   endpoint: sparql_endpoint,
